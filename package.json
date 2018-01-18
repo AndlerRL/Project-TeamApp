@@ -1,0 +1,19 @@
+{
+  "name": "teampp_mean",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.1",
+    "morgan": "^1.9.0",
+    "swig": "^1.4.2"
+  },
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "null"
+  },
+  "author": "Lucas <andre.rlucas@outlook.com>",
+  "license": "ISC",
+  "description": ""
+}
