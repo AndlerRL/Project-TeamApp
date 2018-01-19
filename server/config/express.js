@@ -12,6 +12,6 @@ module.exports= function(app, config) {
     swig.setDefaults({ cache: false });
 
     app.use(logger('dev'));
-    app.use(bodyParse());
+    app.use(bodyParser());
     app.use(express.static(config.rootPath + '/public'));
 };
