@@ -3,8 +3,8 @@
 <h2>It's a WebApp develop with MEAN implementations. If you want to run it, just do the command (npm installed already)*:</h2>
 <h3><stronger>supervisor -e html.js server.js</stronger></h3>
 
-<h2><stronger>Updates</stronger><h2>
-  <h3><stronger>[v1.01]</stronger></h3>
+<h2>Updates<br>
+[v1.01]</h2>
 + Since this is a WebApp with the MEAN implementations, I added at this time some AngularJS scripts, also the structure is slighly different; it has been modulated for better maintenance and understandable.<br>
 + Fixed a bug that happened at the time an user wanted to sign out (navbar top-right side).<br>
 + Added a better logo.<br>
