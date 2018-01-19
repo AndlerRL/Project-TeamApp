@@ -10,7 +10,7 @@
 + Added a better logo.<br>
 + Appereance has been modified.<br>
 + Added some files.<br>
-- Deleted the prev index.html file and moved to another route, since I implemented the UI.router and Swig.
+- Deleted the prev index.html file and moved to another route, since I implemented the UI.router and Swig.<br>
 - Changes has been done at server.js file, due require to meets UI.router needs.<br>
 <br>
 <h2>[v0.06]</h2>
@@ -21,8 +21,14 @@ This update has only the require main templates for the website and other change
 + Added dashboard.html file as a template.<br>
 + Code has been added at indexCtrl.js file in order to render.<br>
 + Code has been added at app.js file in order to create routes within templates.<br>
++ An especification has been added at express.js file.
 Future interactions and dinamics will be added soon.<br>
 <br>
+<h2>[v0.08]</h2>
+This update is the addition of models for each part of the website, witch are:<br>
++ Add chat, resources, timeline and tasks module to the App.<br>
++ Add the Mongoose.js module in order to read information and save it.<br>
+<strong>Soon enough I will add the passport.js module for authentications, login and signup within the website--also the manage of it shall be add too.</strong>
 <br>
 <br>
 <br>
