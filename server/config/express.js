@@ -9,7 +9,7 @@ module.exports= function(app, config) {
     app.set('views', config.rootPath + '/server/views');
 
     app.set('view cache', false);
-    swig.setDefaults({ cache: false });
+    swig.setDefaults({ cache: false, varControls: ['{^','^}'] });
 
     app.use(logger('dev'));
     app.use(bodyParser());

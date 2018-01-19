@@ -1,6 +1,6 @@
 var express= require('express'),
-app= express(),
-server= require('http').createServer(app);
+    app= express(),
+    server= require('http').createServer(app);
 
 var config= {
     rootPath: __dirname
