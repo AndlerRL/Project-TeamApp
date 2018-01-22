@@ -1,4 +1,4 @@
-var app= angular.module('Teamapp', ['ui.router']);
+var app= angular.module('Teamapp', ['ui.router', 'ngAnimate', 'toastr']);
 
 app.config(['$stateProvider', "$urlRouterProvider", ($stateProvider, $urlRouterProvider)=> {
     $urlRouterProvider.otherwise('/app/dashboard');
@@ -8,7 +8,8 @@ app.config(['$stateProvider', "$urlRouterProvider", ($stateProvider, $urlRouterP
         controller: 'indexCtrl'
     }).state('app.dashboard', {
         url: '/dashboard',
-        templateUrl: 'partials/dashboard/templates/dashboard.html'
+        templateUrl: 'partials/dashboard/templates/dashboard.html',
+        controller: 'dashboardCtrl'
     }).state('app.chat', {
         url: '/chat',
         templateUrl: 'partials/chat/templates/chat.html'
@@ -18,5 +19,13 @@ app.config(['$stateProvider', "$urlRouterProvider", ($stateProvider, $urlRouterP
     }).state('app.resources', {
         url: '/resources',
         templateUrl: 'partials/resources/templates/resources.html'
+    }).state('registry', {
+        url: '/registry',
+        templateUrl: 'partials/sign_up/templates/registry.html',
+        controller: 'registryCtrl'
+    }).state('login', {
+        url: '/login',
+        templateUrl: 'partials/sign_up/templates/login.html',
+        controller: 'loginCtrl'
     });
 }]);

@@ -28,7 +28,16 @@ Future interactions and dinamics will be added soon.<br>
 This update is the addition of models for each part of the website, witch are:<br>
 + Add chat, resources, timeline and tasks module to the App.<br>
 + Add the Mongoose.js module in order to read information and save it.<br>
-<strong>Soon enough I will add the passport.js module for authentications, login and signup within the website--also the manage of it shall be add too.</strong>
+<br>
+<h2>[v0.21]</h2>
+Passport.js has arrive!<br>
+I added multiple documents in order to use passport.js and are the next one:<br>
++ Added authentication management with express-session.<br>
++ Added social login with Twitter and local with mongodb and redis.<br>
++ Added logout functionabilities.<br>
++ Data Base & server has now recognition of a user still login or not, can now differenciate witch user logout or not, so users can now be able to maintain their session.<br>
++ Some aditional css and js files has been add such as angular-toastr.js/.css; has now async.js and angular-animate.js<br>
+<strong>The rest of functionalities such as chat, tasks, dashboard(feed) and resources should be add soon.</strong>
 <br>
 <br>
 <br>

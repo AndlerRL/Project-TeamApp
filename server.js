@@ -9,6 +9,6 @@ var config= {
 require('./server/config/express')(app, config);
 require('./server/config/routes')(app);
 
-server.listen(3000, function() {
-    console.log('Server engaged at PORT:3000');
+server.listen(8000, function() {
+    console.log('Server engaged at PORT:8000');
 });
