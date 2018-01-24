@@ -1,6 +1,6 @@
 <div class="mailbox row">
    <div class="col-xs-12">
-      <div class="col box-solid">
+      <div class="box box-solid">
          <div class="box-body">
             <div class="row">
                <div class="col-md-3 col-sm-4">
@@ -9,7 +9,7 @@
                      <h3 class="box-title">Inbox</h3>
                   </div>
 
-                  <a href="" class="btn btn-block btn-primary">
+                  <a ui-sref="app.resources.create" class="btn btn-block btn-primary">
                      <i class="fa fa-pencil"></i>
                      Send Resource
                   </a>
@@ -19,14 +19,14 @@
                         <li class="header">Folders</li>
 
                         <li ui-sref-active="active">
-                           <a href="#">
+                           <a ui-sref="app.resources.received" style="cursor:pointer">
                               <i class="fa fa-inbox"></i>
                               Received
                            </a>
                         </li>
 
                         <li ui-sref-active="active">
-                           <a href="#">
+                           <a ui-sref="app.resources.sent" style="cursor:pointer">
                               <i class="fa fa-pencil-square-o"></i>
                               Sent
                            </a>

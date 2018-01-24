@@ -1,0 +1,18 @@
+<div class="table-responsive">
+   <table class="table table-mailbox">
+      <tr ng-show="!received.length">
+         <td>There is no shared resources with you.</td>
+      </tr>
+      <tr ng-repeat="resource in received track by date" class="unread" ui-sref="app.resources.detail({id_resource: '{{resource._id.toString()}}'})" style="cursor:pointer">
+         <td class="small-col">
+            <input type="checkbox">
+         </td>
+         <td class="small-col">
+            <i class="fa fa-star"></i>
+         </td>
+         <td class="name">{{resource.sender.name}}</td>
+         <td class="subject">{{resource.subject}}</td>
+         <td class="time">12:30 PM</td>
+      </tr>
+   </table>
+</div>

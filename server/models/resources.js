@@ -9,14 +9,14 @@ var resourcesSchema= new Schema({
       type: Schema.Types.ObjectId,
       ref: 'User'
    },
-   receiver: [{
+   receivers: [{
       type: String
    }],
    date: {
       type: Date,
       default: Date()
    },
-   affair: String
+   subject: String
 });
  var Resources= models.model('Resource', resourcesSchema, 'resources');
 

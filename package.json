@@ -1,11 +1,14 @@
 {
   "name": "teampp_mean",
   "dependencies": {
+    "async": "^2.6.0",
     "body-parser": "^1.18.2",
+    "connect-multiparty": "^2.1.0",
     "connect-redis": "^3.3.3",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
+    "lodash": "^4.17.4",
     "mongodb": "^3.0.1",
     "mongoose": "^5.0.1",
     "morgan": "^1.9.0",
@@ -13,6 +16,7 @@
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
     "schema": "^0.2.1",
+    "socket.io": "^2.0.4",
     "swig": "^1.4.2"
   },
   "version": "1.0.0",

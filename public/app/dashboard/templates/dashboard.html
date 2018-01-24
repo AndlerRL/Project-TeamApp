@@ -2,31 +2,30 @@
    <div class="col-md-12">
       <ul class="timeline">
          <li class="time-label">
-            <span class="bg-red">Jan 18 2018</span>
+            <span class="bg-red">{{today | date: 'dd MMM yyyy'}}</span>
          </li>
 
-         <li>
-            <i class="fa fa-check bg-blue"></i>
-            <div class="timeline-item">
+         <li ng-repeat="item in timeline">
+            <i class="fa bg-blue" ng-class="{'fa-check': item.type == task, 'fa-evelope': item.type == resource}"></i>
+            <div class="timeline-item" ng-show="item.type : task" ng-hide="item.type.task.length">
                <h3 class="timeline-header">
-                  <a href="javascript:void(0);">Steve Johnson</a>
-                  finished a Task!
+                  <a href="javascript:void(0);">{{item.user.name}}</a>
+                  {{item.action}}
                </h3>
                <div class="timeline-body">
-                  Design the Website model.
+                  {{item.description}}
                </div>
             </div>
-         </li>
 
-         <li>
-            <i class="fa fa-envelope bg-blue"></i>
-            <div class="timeline-item">
+            <div class="timeline-item" ng-show="item.type : resource" ng-hide="item.type.resource.length">
                <h3 class="timeline-header">
-                  <a href="javascript:void(0);">Anthony Garza</a>
-                  Shared a resource.
+                  <a href="javascript:void(0)">
+                     {{item.resource.sender.name}}
+                  </a>
+                  {{item.action}} with {{item.resource.receivers.join(',')}}
                </h3>
                <div class="timeline-body">
-                  Prototype's Model Images.
+                  {{item.description}}
                </div>
             </div>
          </li>

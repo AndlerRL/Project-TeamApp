@@ -1,4 +1,4 @@
-angular.module('Teamapp').controller('loginCtrl', function($scope, $http, $state, toastF, Session) {
+angular.module('Teamapp').controller('loginCtrl', function($scope, $http, $state, ToastService, Session) {
    $scope.master= {};
    $scope.signin= function() {
       var user= {
@@ -7,10 +7,10 @@ angular.module('Teamapp').controller('loginCtrl', function($scope, $http, $state
       };
       Session.logIn(user).then(function(response) {
          if (response.data.success) {
-            toastF.success('Login session successful');
+            ToastService.success('Login session successful');
             $state.transitionTo('app.dashboard');
          } else {
-            toastF.error('Authentication Error, verify your data');
+            ToastService.error('Authentication Error, verify your data');
             $scope.user= angular.copy($scope.master);
             $scope.form.$setPristine();
          }

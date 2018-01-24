@@ -37,7 +37,14 @@ I added multiple documents in order to use passport.js and are the next one:<br>
 + Added logout functionabilities.<br>
 + Data Base & server has now recognition of a user still login or not, can now differenciate witch user logout or not, so users can now be able to maintain their session.<br>
 + Some aditional css and js files has been add such as angular-toastr.js/.css; has now async.js and angular-animate.js<br>
-<strong>The rest of functionalities such as chat, tasks, dashboard(feed) and resources should be add soon.</strong>
+<br>
+<h2>[v0.6]</h2>
+Task, Dashboard and Resources implemented!<br>
+Now website has the ability to:<br>
++ Have each user a To Do List, were users can add a task, put it pending and then, when they complete it, the changes shall appear on the dashboard (feed).<br>
++ Users can share documents each others on the Resources site (where also users can see the received and sent items within it) and will be reflected on the dashboard. <br>
++ The dashboard(feed) is on real-time, so each user that is available (logged) on the site, it will be reflected in real-time the changes and user's activity.<br>
+<strong>Later on I will implement the chat section and do some minor changes</strong>
 <br>
 <br>
 <br>
