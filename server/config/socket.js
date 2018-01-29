@@ -1,7 +1,7 @@
 var _= require('lodash');
 var users= [];
 
-module.exports= function(server) {
+module.exports= (server)=> {
    var io= require('socket.io')(server);
 
    io.on('connection', function(socket) {
@@ -23,11 +23,9 @@ module.exports= function(server) {
       });
 
       socket.on('new:user', function(data) {
-         var index= _.findIndex(users, {
-           _id: data.user._id
-          });
+         var index= _.findIndex(users, { _id : data.user._id });
 
-         if(index > -1) {
+         if (index > -1) {
             users[index].socket= socket.id;
          } else {
             users.push({
@@ -38,7 +36,7 @@ module.exports= function(server) {
             });
          }
 
-         console.log(users);
+         console.log("Users Connected: \n", users);
          socket.broadcast.emit('users:list', users);
       });
 
@@ -50,7 +48,7 @@ module.exports= function(server) {
         var index= _.findIndex(users, { _id: msg.receiver._id});
         if (index > -1) {
           socket.broadcast.in(users[index].socket).emit('msg:private', msg);
-        }
+        } //maybe here the ToastService????
       });
 
       socket.on('users', function(data) {

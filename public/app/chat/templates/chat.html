@@ -11,7 +11,7 @@
                <div style="margin-top: 15px">
                   <ul class="nav nav-pills nav-stacked" style="overflow: auto; height: 300px">
 
-                     <li class="header">Team</li>
+                     <li class="header">Team Full-Stack</li>
 
                      <li ui-sref-active="active">
                         <a ng-click="goToChat('general')" href="javascript:void(0);" style="cursor: pointer">
@@ -19,7 +19,7 @@
                         </a>
                      </li>
 
-                     <li ui-sref-active="active" ng-repeat="user in usersConnected" href="javascript:void(0);">
+                     <li ui-sref-active="active" ng-repeat="user in users_connected" href="javascript:void(0);">
                         <a ng-click="goToChat(user._id)" style="cursor:pointer">
                            <i class="fa fa-circle text-success"></i>
                            {{user.nick}}

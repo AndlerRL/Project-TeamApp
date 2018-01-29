@@ -5,13 +5,13 @@
    </div>
 
    <div class="box-body chat" id="chat-box" style="overflow: auto; height: 300px" scroll-glue>
-      <div class="item" ng-repeat="msg in msgsG">
-         <img src="{{user.profileImg}}" alt="user image" class="online"/>
+      <div class="item" ng-repeat="msg in msgsG"> <!-- div class="item" ng-repeat="msg in msgsList[chat]" -->
+         <img ng-src="{{user.profileImg}}" alt="user image" class="online"/>
          <p class="message">
             <a ng-click="goToChat(user._id)" class="name">
                <small class="text-muted pull-right">
                   <i class="fa fa-clock-o"></i> 
-                   2:15 PM
+                   {{msg.date | date: hh:mm}}
                </small>
                {{msg.username}}
             </a>
