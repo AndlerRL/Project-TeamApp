@@ -1,22 +1,69 @@
-<div class="form-box" id="login-box">
-   <div class="header">User Registry</div>
-   <form ng-submit="register()">
-      <div class="body bg-gray">
-         <div class="form-group">
-            <input type="text" name="name" ng-model="user.name" class="form-control" placeholder="First and Last Name">
+<style>
+   .select-img {
+      background-color: navajowhite;
+      border: 1px solid #333;
+      border-radius: 3px;
+      box-shadow: 0 0 15px rgba(3,3,3,.5);
+      -webkit-transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1) all;
+              transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1) all;
+      margin-top: 1em;
+   }
+   .select-img:hover {
+      border: 2px solid #666;
+      box-shadow: 0 0 24px rgba(3,3,3,.6);
+      -webkit-transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1) all;
+              transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1) all;
+   }
+</style>
+
+<div style="background: url(img/blur-background08.jpg); background-position: center; min-height: 720px; max-height: 1080px; padding-top: .1em; padding-bottom: .1em">
+   <div class="form-box" id="login-box">
+      <div class="header">User Registry</div>
+      <form ng-submit="register()">
+         <div class="body bg-gray">
+            <div class="text-center">
+            <div class="form-group">
+               <input type="text" name="name" ng-model="user.name" class="form-control" placeholder="First and Last Name" required>
+            </div>
+
+            <div class="form-group">
+               <input type="text" name="username" ng-model="user.username" class="form-control" placeholder="Username" required>
+            </div>
+
+            <div class="form-group" style="display: inline-block">
+               <label for="profileImg" class="memberLabel">Select your Avatar</label>
+               <select name="profileImg" ng-model="user.profileImg" class="form-control" required>
+                  <option value="img/not-allowed-128.png">No Avatar</option>
+                  <option value="img/user-bg.png">Standard</option>
+                  <option value="img/avatar.png">Avatar 1</option>
+                  <option value="img/avatar2.png">Avatar 2</option>
+                  <option value="img/avatar3.png">Avatar 3</option>
+                  <option value="img/avatar4.png">Avatar 4</option>
+                  <option value="img/avatar5.png">Avatar 5</option>
+               </select>
+
+               <img ng-src="{{user.profileImg}}" class="select-img" width="50" height="50">
+            </div>
+
+            <div class="form-group">
+               <input type="email" name="email" ng-model="user.email" class="form-control" placeholder="Email Address" required>
+            </div>
+
+            <div class="form-group">
+               <input type="password" name="password" ng-model="user.password" class="form-control" placeholder="Password" id="pass1" required>
+            </div>
+
+            <div class="form-group">
+               <input type="password" name="password2" ng-model="user.passwordC" class="form-control" placeholder="Confirm Password" id="pass2" required>
+            </div>
          </div>
 
-         <div class="form-group">
-            <input type="text" name="username" ng-model="user.username" class="form-control" placeholder="Username">
-         </div>
+            <div class="footer">
+               <button type="submit" ng-disabled="sending" class="btn bg-olive btn-block">Register</button>
+            </div>
 
-         <div class="form-group">
-            <input type="password" name="password" ng-model="user.password" class="form-control" placeholder="Password">
+            <h4 class="alert" ng-show="user.password !== user.passwordC">Password doesn't match.</h4>
          </div>
-
-         <div class="footer">
-            <button type="submit" ng-disabled="sending" class="btn bg-olive btn-block">Register</button>
-         </div>
-      </div>
-   </form>
-</div> 
+      </form>
+   </div>
+</div>

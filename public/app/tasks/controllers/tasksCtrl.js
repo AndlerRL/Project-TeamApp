@@ -1,4 +1,4 @@
-angular.module('Teamapp').controller('tasksCtrl', function($scope, TasksService, Socket) {
+angular.module('Teamapp').controller('tasksCtrl', function($scope, $state, TasksService, ToastService, Socket) {
    var checked= [];
 
    $scope.tasks= [];
@@ -26,21 +26,16 @@ angular.module('Teamapp').controller('tasksCtrl', function($scope, TasksService,
       TasksService.saveFinished({ ids: ids }).then(function(response) {
          _.each(response.data, function(item) {
             var item= item;
+            //$scope.tasks_finished.push(item);
             _.remove($scope.tasks, function(task) {
                return task._id === item._id;
             });
          });
          Socket.emit('new:task', response.data.populated);
+         ToastService.success('You Completed a Task!');
+         $state.transitionTo('app.dashboard');
       });
    }
-
-   TasksService.getTasks().then(function(response) {
-      _.each(response.data, function(item) {
-         if (item.finished.status == false) {
-            $scope.tasks.push(item);
-         }
-      });
-   });
 
    $scope.orderList= function(response) {
       var finished= [];

@@ -1,7 +1,17 @@
-angular.module('Teamapp').factory('Socket', function($rootScope) {
+angular.module('Teamapp').factory('Socket', function($rootScope, Session) {
    var socket= io.connect();
 
+   socket.on('connect', function() {
+      Session.getUser().then(function(response) {
+         var user= response.data.user;
+         socket.emit('new:user', user);
+      });
+   });
+
    return {
+      init: function() {
+         socket.removeAllListeners();
+      },
       on: function(eventName, callback) {
          socket.on(eventName, function() {
             var args= arguments;

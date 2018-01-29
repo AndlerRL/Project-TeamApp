@@ -1,4 +1,4 @@
-<div class="col-xs-12">
+<div class="col-xs-12" style="padding: 4em 4em; min-height: 768px; margin: 0">
    <div class="box box-solid">
       <div class="box-body">
          <div class="row">
@@ -7,25 +7,22 @@
                   <i class="fa fa-inbox"></i>
                   <h3 class="box-tittle">Chat</h3>
                </div>
+
                <div style="margin-top: 15px">
                   <ul class="nav nav-pills nav-stacked" style="overflow: auto; height: 300px">
+
                      <li class="header">Team</li>
 
-                     <li>
-                        <a href="#">
+                     <li ui-sref-active="active">
+                        <a ng-click="goToChat('general')" href="javascript:void(0);" style="cursor: pointer">
                            <i class="fa fa-group zz"></i>General
                         </a>
                      </li>
 
-                     <li>
-                        <a href="#">
-                           <i class="fa fa-circle text-success"></i>Anthony Garza
-                        </a>
-                     </li>
-
-                     <li>
-                        <a href="#">
-                           <i class="fa fa-circle text-success"></i>George Stackfield
+                     <li ui-sref-active="active" ng-repeat="user in usersConnected" href="javascript:void(0);">
+                        <a ng-click="goToChat(user._id)" style="cursor:pointer">
+                           <i class="fa fa-circle text-success"></i>
+                           {{user.nick}}
                         </a>
                      </li>
                   </ul>
@@ -34,8 +31,8 @@
 
             <div class="col-md-9 col-sm-8 ng-scope" ui-view>
                <div class="callout callout-info">
-                  <h4>Welcome to the Team Chat</h4>
-                  <p>Select to the left someone you want to chat.</p>
+                  <h4>Welcome to the Team Chat!</h4>
+                  <p>Select to the left someone you want to chat, or click on General if you want to speak with all the connected Team Members.</p>
                </div>
             </div>
          </div>

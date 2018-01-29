@@ -4,11 +4,15 @@ var models= require('./models'),
 var userSchema= new Schema({
    name: String,
    username: {
-      type:String,
+      type: String,
       unique: true
    },
+   profileImg: String,
+   email: String,
    password: String,
-   twitter: Schema.Types.Mixed
+   passwordC: String,
+   twitter: Schema.Types.Mixed,
+   facebook: Schema.Types.Mixed
 });
 
 userSchema.methods= {

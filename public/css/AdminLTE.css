@@ -1810,7 +1810,8 @@ Component: timeline
   margin-right: 15px;
   padding: 5px;
   position: relative;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.33);
+  border-radius: 3px;
 }
 .timeline > li > .timeline-item > .time {
   color: #999;

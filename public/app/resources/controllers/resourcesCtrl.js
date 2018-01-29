@@ -1,10 +1,12 @@
-angular.module('Teamapp').controller('resourcesCtrl', function($scope, $http, $state, ToastService, ResourcesService, Socket) {
+var app= angular.module('Teamapp');
+
+app.controller('resourcesCtrl', function($scope, $http, $state,  ResourcesService, ToastService, Socket) {
    $scope.filesChanged= function(ele) {
       $scope.files= ele.files;
       $scope.$apply();
    }
 
-   $scope.uploadFile= function() {
+   $scope.uploadFile= ()=> {
       var fd= new FormData();
       angular.forEach($scope.files, function(file) {
          fd.append('file', file);        
@@ -12,10 +14,10 @@ angular.module('Teamapp').controller('resourcesCtrl', function($scope, $http, $s
       fd.append('receivers', $scope.receivers);
       fd.append('subject', $scope.subject);
 
-      $http.post('/resource', fd, {
+      $http.post('/resources', fd, {
          transformRequest: angular.identify,
          headers: { 'Content-Type' : undefined }
-      }).success(function(success) {
+      }).success(function(response) {
          Socket.emit('new:resource', response);
          ToastService.success('Sent Correctly');
          $state.transitionTo('app.resources');

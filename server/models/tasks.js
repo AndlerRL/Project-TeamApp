@@ -1,18 +1,23 @@
 var models= require('./models'),
+    user= require('./users');
    Schema= models.Schema;
 
 var tasksSchema= new Schema({
    description: String,
    user: {
       type: Schema.Types.ObjectId,
-      ref: 'User'
+      ref: 'User',
+      profileImg: user.profileImg
    },
    finished: {
       status: {
          type: Boolean,
          default: false
       },
-      date: Date
+      date: {
+          type: Date,
+          default: Date()
+        }
    }
 });
 

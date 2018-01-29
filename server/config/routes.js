@@ -2,6 +2,7 @@ var users= require('../controllers/users');
 var tasks= require('../controllers/tasks');
 var resources= require('../controllers/resources');
 var timeline= require('../controllers/timeline');
+var chat= require('../controllers/chat');
 var passport= require('./passport');
 var multiparty= require('connect-multiparty')();
 
@@ -25,13 +26,22 @@ module.exports= function(app) {
         failureRedirect: '/login' 
     }));
 
+    app.get('/auth/facebook', passport.authenticate('facebook'));
+
+    app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+        successRedirect: '/',
+        failureRedirect: '/login'
+    }));
+
     app.post('/tasks', tasks.Save);
 
     app.get('/tasks', tasks.getTasks);
 
     app.post('/tasks/finished', tasks.saveFinished, timeline.finishedTask);
 
-    app.post('/resource', multiparty, resources.saveResource, timeline.sentResource);
+    app.post('/conversation', chat.create_give_conversation);
+
+    app.post('/resources', multiparty, resources.saveResource, timeline.sentResource);
 
     app.get('/resources/received', resources.getReceivedResources);
 
@@ -40,6 +50,12 @@ module.exports= function(app) {
     app.get('/resource/:id_resource', resources.getDetailResource);
 
     app.get('/timeline', timeline.getTimeline);
+
+    app.post('/message', chat.send_msg);
+
+    app.get('/messages/general', chat.get_general_msgs);
+
+    app.get('/messages/:id_chat', chat.get_private_msgs);
 
     app.get('*', function(req, res) {
         res.render('index');

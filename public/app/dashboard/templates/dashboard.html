@@ -1,28 +1,43 @@
-<div class="row">
+<div class="row" style="padding: 4em 4em; min-height: 768px; margin: 0">
    <div class="col-md-12">
       <ul class="timeline">
          <li class="time-label">
-            <span class="bg-red">{{today | date: 'dd MMM yyyy'}}</span>
+            <span class="bg-red">{{today | date: 'MMM d, y'}}</span>
          </li>
-
+         <br>
+         <br>            
          <li ng-repeat="item in timeline">
-            <i class="fa bg-blue" ng-class="{'fa-check': item.type == task, 'fa-evelope': item.type == resource}"></i>
-            <div class="timeline-item" ng-show="item.type : task" ng-hide="item.type.task.length">
+            <i class="fa bg-black" ng-class="{'fa-check' : item.type == task,'fa-envelope' : item.type == resource}"></i>
+            <div class="timeline-item">
                <h3 class="timeline-header">
+                  <img ng-src="{{item.user.profileImg}}" alt="user image" class="img-circle" height="30" width="30">
                   <a href="javascript:void(0);">{{item.user.name}}</a>
                   {{item.action}}
+                  <div class="time-label pull-right">
+                     <span style="font-size:xx-small; color: rgba(0,0,0,.25)">
+                        {{item.date | date: "MMM d, y h:mm a" }}
+                     </span>
+                  </div>
                </h3>
                <div class="timeline-body">
                   {{item.description}}
                </div>
             </div>
+         </li>
 
-            <div class="timeline-item" ng-show="item.type : resource" ng-hide="item.type.resource.length">
+         <li>
+            <div class="timeline-item">
                <h3 class="timeline-header">
+                  <img src="{{item.user.profileImg}}" alt="user image" class="img-circle" height="30" width="30">
                   <a href="javascript:void(0)">
-                     {{item.resource.sender.name}}
+                     {{item.user.name}}
                   </a>
-                  {{item.action}} with {{item.resource.receivers.join(',')}}
+                  {{item.action}} with {{item.resource.receivers.join(', ')}}
+                  <div class="time-label pull-right">
+                     <span style="font-size:xx-small; color: rgba(0,0,0,.25)">
+                        {{item.date | date: "MMM d, y h:mm a" }}
+                     </span>
+                  </div>
                </h3>
                <div class="timeline-body">
                   {{item.description}}

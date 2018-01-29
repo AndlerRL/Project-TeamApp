@@ -3,7 +3,7 @@
       <tr ng-show="!sent.length">
          <td>There is no resource sent.</td>
       </tr>
-      <tr ng-repeat="resource in sent track by ObjectId" class="unread" ui-sref="app.resources.detail({id_resource: '{{resource._id.toString()}}'})" style="cursor:pointer">
+      <tr ng-repeat="resource in sent track by $index" class="unread" ui-sref="app.resources.detail({id_resource: '{{resource._id.toString()}}'})" style="cursor:pointer">
          <td class="small-col">
             <input type="checkbox">
          </td>
@@ -12,7 +12,7 @@
          </td>
          <td class="name">{{resource.sender.name}}</td>
          <td class="subject">{{resource.subject}}</td>
-         <td class="time">12:30 PM</td>
+         <td style="color: rgba(80,80,80,.25); font-style:oblique"><small>{{resource.date | date: "MMM/d/yy h:mm a" }}</small></td>
       </tr>
    </table>
 </div>

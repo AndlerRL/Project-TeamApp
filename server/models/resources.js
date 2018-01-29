@@ -1,4 +1,5 @@
 var models= require('./models'),
+    user= require('./users'),
    Schema= models.Schema;
 
 var resourcesSchema= new Schema({
@@ -7,11 +8,10 @@ var resourcesSchema= new Schema({
    }],
    sender: {
       type: Schema.Types.ObjectId,
-      ref: 'User'
+      ref: 'User',
+      profileImg: user.profileImg
    },
-   receivers: [{
-      type: String
-   }],
+   receivers: String,
    date: {
       type: Date,
       default: Date()

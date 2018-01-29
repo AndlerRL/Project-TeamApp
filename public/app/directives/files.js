@@ -1,11 +1,21 @@
 angular.module('Teamapp').directive('fileInput', function($parse) {
    return {
-      restrict: 'A',
-      link: function(scope, ele, attrs) {
-         ele.bind('change', function() {
-            $parse(attrs.fileInput).assign(scope, ele[0].files)
-            scope.$apply();
-         });
+      restrict: 'BA',
+      template: "<input type='file'/>",
+      replace: true,
+      link: (scope, ele, attrs)=> {
+         var fileGet= $parse(attrs.fileInput);
+         var fileSet= fileGet.assign;
+         var onChange= $parse(attrs.onChange);
+
+         var updateFile= ()=> {
+            scope.$apply(function() {
+               fileSet(scope, ele[0]. files[0]);
+               onChange(scope);
+            });
+         };
+
+         ele.bind('change', updateFile);
       }
    }
 });

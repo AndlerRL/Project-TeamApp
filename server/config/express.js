@@ -16,14 +16,17 @@ module.exports= function(app, config) {
     swig.setDefaults({ cache: false, varControls: ['{^','^}'] });
 
     app.use(logger('dev'));
-    app.use(bodyParser());
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({extended: false}));
     app.use(cookieParser());
 
     app.use(session({
         store: new redisStore({
             dissableTTL: true
         }),
-        secret: 'teamapp lucas'
+        secret: 'teamapp lucas',
+        resave: true,
+        saveUninitialized: true
     }));
     app.use(passport.initialize());
     app.use(passport.session());

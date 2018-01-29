@@ -12,9 +12,10 @@ exports.saveResource= function(req, res, next) {
    async.series({
       files: function(callback) {
          if (req.files.hasOwnProperty('files')) {
+            console.log(req.files);
             if (req.files.file.length > 0) {
                var result= _.map(req.files.file, function(file, i) {
-                  return save_files(req, res, i, file);
+                  return save_files(req, res, i, file);;
                });
                callback(null, result);
             } else {
@@ -27,7 +28,7 @@ exports.saveResource= function(req, res, next) {
       Data: function(callback) {
          var data= {
             sender: ObjectId(req.session.passport.user._id.toString()),
-            receivers: req.body.receivers.split(','),
+            receivers: req.body.receivers.split(', '),
             subject: req.body.subject 
          }
          callback(null, data);
@@ -74,32 +75,32 @@ exports.getDetailResource= function(req, res, next) {
    Resource.findOne({_id:req.params.id_resource}).populate('sender').exec(function(err, resource) {
       if (!err) { res.send(resource); } else { console.log(resource); }
    });
-}
+};
 
 function save_files(req, res, i, file) {
-   var root= path.dirname(require.main.filename);
-   var originalFilename= file.originalFilename.split('.');
-   var ext= originalFilename[originalFilename.length - 1];
-   var file_name= newResource._id.toString() + '_' + i + '.' + ext;
-   var newPath= root + '/public/resources/' + file_name;
-   var newFile= new fs.createWriteStream(newPath);
-   var oldFile= new fs.createReadStream(file.path);
-   var total_bytes= req.headers['content-length'];
-   var uploaded_bytes= 0;
+      var root= path.dirname(require.main.filename);
+      var originalFilename= file.originalFilename.split('.');
+      var ext= originalFilename[originalFilename.length - 1];
+      var file_name= newResource._id.toString() + '_' + i + '.' + ext;
+      var newPath= root + '/public/resources/' + file_name;
+      var newFile= new fs.createWriteStream(newPath);
+      var oldFile= new fs.createReadStream(file.path);
+      var total_bytes= req.headers['content-length'];
+      var uploaded_bytes= 0;
 
-   oldFile.pipe(newFile);
-   oldFile.on('data', function(chunk) {
-      uploaded_bytes += chunk.length;
-      var progress= (uploaded_bytes / total_bytes) * 100;
-      console.log('Progress: ' + parseInt(progress, 10) + '%\n');
-   });
+      oldFile.pipe(newFile);
+      oldFile.on('data', function(chunk) {
+         uploaded_bytes += chunk.length;
+         var progress= (uploaded_bytes / total_bytes) * 100;
+         console.log('Progress: ' + parseInt(progress, 10) + '%\n');
+      });
 
-   oldFile.on('end', function() {
-      console.log('Upload Completed');
-      res.end('Upload Completed');
-   });
+      oldFile.on('end', function() {
+         console.log('Upload Completed');
+         res.end('Upload Completed');
+      });
 
-   return file_name;
+      return file_name;
 }
 
 function save_resource(result, callback) {
