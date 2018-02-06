@@ -52,6 +52,7 @@ exports.finishedTask= function(req, res, next) {
 
 exports.sentResource= function(req, res, next) {
       var timeline= new Timeline({
+            user: ObjectId(resource.user.toString()),
             resource: req.body.resource._id,
             action: ' shared a resource',
             description: req.body.resource.subject,

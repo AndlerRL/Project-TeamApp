@@ -26,7 +26,6 @@ angular.module('Teamapp').controller('tasksCtrl', function($scope, $state, Tasks
       TasksService.saveFinished({ ids: ids }).then(function(response) {
          _.each(response.data, function(item) {
             var item= item;
-            //$scope.tasks_finished.push(item);
             _.remove($scope.tasks, function(task) {
                return task._id === item._id;
             });

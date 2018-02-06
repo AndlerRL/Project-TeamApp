@@ -6,7 +6,7 @@ var db= mongoose.connection;
 
 db.on('error', console.error.bind(console, 'Connection Error'));
 db.once('open', function callback() {
-   console.log('TeamApp DB--Engage...');
+   console.log('||| TeamApp DB -- Engage...');
 });
 
 module.exports= mongoose;

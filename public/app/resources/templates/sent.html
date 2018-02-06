@@ -3,15 +3,31 @@
       <tr ng-show="!sent.length">
          <td>There is no resource sent.</td>
       </tr>
-      <tr ng-repeat="resource in sent track by $index" class="unread" ui-sref="app.resources.detail({id_resource: '{{resource._id.toString()}}'})" style="cursor:pointer">
+
+      <div class="thumbnail form-group col-xs-12" style="border-bottom-right-radius: 0; border-bottom-left-radius: 0; margin: 0;">
+         <div class="col-xs-push-1" style="display: inline-flex; margin: 0; position: relative; margin-left: 1.5em">
+            <div class="form-group text-center">
+               <input type="text" class="form-control" ng-model="query" placeholder="Find Sent Resources" style="width: 210px;">
+            </div>
+
+            <select class="form-control" ng-model="orderProp" style="width: 120px;">
+               <option disabled selected="selected">Order By</option>
+               <option value="date">Date</option>
+               <option value="name">Sender Name</option>
+               <option value="username">Username</option>
+            </select>
+         </div>
+      </div>
+
+      <tr ng-repeat="resource in sent track by $index | filter:query | orderBy:orderProp:reverse" class="unread">
          <td class="small-col">
             <input type="checkbox">
          </td>
          <td class="small-col">
-            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o" style="height: 15px; width: 15px"></i>
          </td>
          <td class="name">{{resource.sender.name}}</td>
-         <td class="subject">{{resource.subject}}</td>
+         <td class="subject" ui-sref="app.resources.detail({id_resource: '{{resource._id.toString()}}'})" style="cursor:pointer">{{resource.subject}}</td>
          <td style="color: rgba(80,80,80,.25); font-style:oblique"><small>{{resource.date | date: "MMM/d/yy h:mm a" }}</small></td>
       </tr>
    </table>

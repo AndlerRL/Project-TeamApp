@@ -5,19 +5,35 @@
    </div>
 
    <div class="box-body chat" id="chat-box" style="overflow: auto; height: 300px" scroll-glue>
-      <div class="item" ng-repeat="msg in msgsG"> <!-- div class="item" ng-repeat="msg in msgsList[chat]" -->
-         <img ng-src="{{user.profileImg}}" alt="user image" class="online"/>
-         <p class="message">
-            <a ng-click="goToChat(user._id)" class="name">
-               <small class="text-muted pull-right">
-                  <i class="fa fa-clock-o"></i> 
-                   {{msg.date | date: hh:mm}}
-               </small>
-               {{msg.username}}
-            </a>
-            {{msg.content}}
-         </p>
-      </div>
+        <div ng-repeat="msg in msgsG">
+            <div class="item">
+                <img ng-src="{{user.profileImg}}" alt="user image" class="online"/>
+                <p class="message">
+                <a href="#" class="name">
+                    <small class="text-muted pull-right">
+                        <i class="fa fa-clock-o"></i> 
+                        {{msg.date | date: "h:mm a" }}
+                    </small>
+                    {{msg.username}}
+                </a>
+                {{msg.content}}
+                </p>
+            </div>
+
+            <!-- div class="item">
+                <img ng-src="{{receiver.profileImg}}" alt="user image" class="online" ng-model="other"/>
+                <p class="message">
+                <a ng-click="goToChat(user._id)" class="name">
+                    <small class="text-muted pull-right">
+                        <i class="fa fa-clock-o"></i> 
+                        {{msg.date | date: "h:mm a" }}
+                    </small>
+                    {{msg.username}}
+                </a>
+                {{msg.content}}
+                </p>
+            </div-->
+        </div>
    </div>
 
    <div class="box-footer">

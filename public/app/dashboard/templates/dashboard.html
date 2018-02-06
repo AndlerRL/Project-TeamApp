@@ -1,3 +1,7 @@
+{% block title %}
+Timeline
+{% endblock %}
+
 <div class="row" style="padding: 4em 4em; min-height: 768px; margin: 0">
    <div class="col-md-12">
       <ul class="timeline">
@@ -8,11 +12,11 @@
          <br>            
          <li ng-repeat="item in timeline">
             <i class="fa bg-black" ng-class="{'fa-check' : item.type == task,'fa-envelope' : item.type == resource}"></i>
-            <div class="timeline-item">
+            <div class="timeline-item" ng-show="item.type == task">
                <h3 class="timeline-header">
-                  <img ng-src="{{item.user.profileImg}}" alt="user image" class="img-circle" height="30" width="30">
+                  <img ng-src="{{item.task.user.profileImg}}" alt="user image" class="img-circle" height="30" width="30">
                   <a href="javascript:void(0);">{{item.user.name}}</a>
-                  {{item.action}}
+                  {{item.task.action}}
                   <div class="time-label pull-right">
                      <span style="font-size:xx-small; color: rgba(0,0,0,.25)">
                         {{item.date | date: "MMM d, y h:mm a" }}
@@ -23,26 +27,25 @@
                   {{item.description}}
                </div>
             </div>
-         </li>
 
-         <li>
-            <div class="timeline-item">
-               <h3 class="timeline-header">
-                  <img src="{{item.user.profileImg}}" alt="user image" class="img-circle" height="30" width="30">
-                  <a href="javascript:void(0)">
-                     {{item.user.name}}
-                  </a>
-                  {{item.action}} with {{item.resource.receivers.join(', ')}}
-                  <div class="time-label pull-right">
-                     <span style="font-size:xx-small; color: rgba(0,0,0,.25)">
-                        {{item.date | date: "MMM d, y h:mm a" }}
-                     </span>
-                  </div>
-               </h3>
-               <div class="timeline-body">
-                  {{item.description}}
+
+         <div class="timeline-item" ng-show="item.type == resource">
+            <h3 class="timeline-header">
+               <img ng-src="{{item.resource.sender.profileImg}}" alt="user image" class="img-circle" height="30" width="30">
+               <a href="javascript:void(0)">
+                  {{item.resource.sender.name}}
+               </a>
+               {{item.action}} with {{item.resource.receivers.join(', ')}}
+               <div class="time-label pull-right">
+                  <span style="font-size:xx-small; color: rgba(0,0,0,.25)">
+                     {{item.date | date: "MMM d, y h:mm a" }}
+                  </span>
                </div>
+            </h3>
+            <div class="timeline-body">
+               {{item.description}}
             </div>
+         </div>
          </li>
       </ul>
    </div>

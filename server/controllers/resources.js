@@ -12,10 +12,10 @@ exports.saveResource= function(req, res, next) {
    async.series({
       files: function(callback) {
          if (req.files.hasOwnProperty('files')) {
-            console.log(req.files);
+            // console.log(req.files);
             if (req.files.file.length > 0) {
                var result= _.map(req.files.file, function(file, i) {
-                  return save_files(req, res, i, file);;
+                  return save_files(req, res, i, file);
                });
                callback(null, result);
             } else {

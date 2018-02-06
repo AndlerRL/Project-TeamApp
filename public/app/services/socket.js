@@ -1,5 +1,5 @@
 angular.module('Teamapp').factory('Socket', function($rootScope, Session) {
-   var socket= io.connect();
+   var socket= io.connect();  
 
    socket.on('connect', function() {
       Session.getUser().then(function(response) {

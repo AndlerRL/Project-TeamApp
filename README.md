@@ -44,7 +44,19 @@ Now website has the ability to:<br>
 + Have each user a To Do List, were users can add a task, put it pending and then, when they complete it, the changes shall appear on the dashboard (feed).<br>
 + Users can share documents each others on the Resources site (where also users can see the received and sent items within it) and will be reflected on the dashboard. <br>
 + The dashboard(feed) is on real-time, so each user that is available (logged) on the site, it will be reflected in real-time the changes and user's activity.<br>
-<strong>Later on I will implement the chat section and do some minor changes</strong>
+<br>
+<h2>[v0.9]</h2>
+Global and Private Chat has arrived!<br>
+Nos website counts with a chat group and other implementations like:<br>
++ Now user have the ability to chat each other when another user is online on the chat section.<br>
++ When you are on the General Chat, user can click the username in order to go to the private section with that specific user.<br>
++ Proper chat filters has been added.<br>
++ Facebook login has been added properly!<br>
++ On the registry section, now user can choose their own avatar. Later on some additional user customizations shall be implemented.<br>
+- Some issues has been detected while adding this section, due to inconsistence and version issues with some modules, it has some problems in order to have a true consistance on the chat section--Later on will be fixed.<br>
+- Timeline (dashboard) has some issues at the time to reflect resources and tasks due some compabilities issues. Later on will be fixed.<br>
+- Resources has no longer the ability to save files within the website, due some compabilities issues, as I figured it out... Later on will be fixed... <br>
+<strong>As I mentioned above, there is some issues with some parts on the Webapp, but i'm sure taht it will be fixed as soon as I can. This is my very first WebApp using stack MEAN and just encountered some problems with compabilities and I believe that it could be due the versions and the mixed versions that maybe is causing troubles on the app... You can check the bower field and let me know what you think! I appreciate any help :) A LOT</strong>
 <br>
 <br>
 <br>

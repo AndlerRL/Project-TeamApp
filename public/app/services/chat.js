@@ -6,11 +6,11 @@ angular.module('Teamapp').factory('ChatService', function($http) {
       sendMsg: function(data) {
          return $http.post('/message', data);
       },
-      getGeneralMsgs: function() {
-         return $http.get('/messages/general');
+      getGeneralMsgs: function(data) {
+         return $http.get('/messages/general', data);
       },
-      getPrivateMsgs: function(id) {
-         return $http.get('/messages/' + id.chat);
+      getPrivateMsgs: function(id, data) {
+         return $http.get('/messages/' + id.chat, data);
       }
    };
 });

@@ -11,7 +11,7 @@ var chatSchema= new Schema({
       ref: 'User'
    },
    type: String,
-   messages: [{
+   msgs: [{
       sender: {
          type: Schema.Types.ObjectId,
          ref: 'User'
@@ -20,7 +20,11 @@ var chatSchema= new Schema({
          type: Schema.Types.ObjectId,
          ref: 'User'
       },
-      content: String
+      content: String,
+      date: {
+         type: Date,
+         default: Date()
+      }
    }]
 });
 

@@ -41,7 +41,7 @@ module.exports= function(app) {
 
     app.post('/conversation', chat.create_give_conversation);
 
-    app.post('/resources', multiparty, resources.saveResource, timeline.sentResource);
+    app.post('/resource', multiparty, resources.saveResource, timeline.sentResource);
 
     app.get('/resources/received', resources.getReceivedResources);
 
@@ -51,11 +51,11 @@ module.exports= function(app) {
 
     app.get('/timeline', timeline.getTimeline);
 
-    //app.post('/message', chat.send_msg);
+    app.post('/message', chat.send_msg);
 
-    //app.get('/messages/general', chat.get_general_msgs);
+    app.get('/messages/general', chat.get_general_msgs);
 
-    //app.get('/messages/:id_chat', chat.get_private_msgs);
+    app.get('/messages/:id_chat', chat.get_private_msgs);
 
     app.get('*', function(req, res) {
         res.render('index');
